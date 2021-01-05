@@ -1,6 +1,6 @@
 Assignment – Backend Developer (Problem Statement)
 
-NOTE: Python 3 has been used in the implementation
+NOTE: Python 3 has been used in the implementation, all pip packages are in requirements.txt
 
 Consider the below Django Models:
 
