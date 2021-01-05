@@ -34,7 +34,7 @@ from the available status choices.
 
 a. The created dates for the PurchaseStatusModel objects must be
 randomly distributed between 01 st Jan 2019 05 pm IST and 31 st
-March 2020 10 pm ISTCreate a dashboard using echarts (https://echarts.apache.org/) showing a bar
+March 2020 10 pm IST. Create a dashboard using echarts (https://echarts.apache.org/) showing a bar
 chart of the PurchaseModel with a Date Filter.
 
 • On Page load the bar chard should show 1year data with monthly

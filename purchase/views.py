@@ -29,11 +29,22 @@ def home_view(request):
         .annotate(quantity_sum=Sum('purchase__quantity')) \
         .order_by('year', 'month')
 
-    quantity_list = json.dumps([str(purchase_status_model["quantity_sum"]) \
-                                for purchase_status_model in purchase_status_models])
+    quantity_list = [str(purchase_status_model["quantity_sum"]) for purchase_status_model in purchase_status_models]
 
-    months_list = json.dumps([str(purchase_status_model["month"]) + "/" + str(purchase_status_model["year"])[2:] \
-                              for purchase_status_model in purchase_status_models])
+    # Need to show only one year data
+    if len(quantity_list) > 12:
+        quantity_list = quantity_list[:12]
+
+    quantity_list = json.dumps(quantity_list)
+
+    months_list = [str(purchase_status_model["month"]) + "/" + str(purchase_status_model["year"])[2:]
+                   for purchase_status_model in purchase_status_models]
+
+    # Need to show only one year data
+    if len(months_list) > 12:
+        months_list = months_list[:12]
+
+    months_list = json.dumps(months_list)
 
     return render(request, "home.html", {
         "months_list": months_list,
