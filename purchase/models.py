@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import datetime
 from django.db import connection
 
 
@@ -15,6 +14,14 @@ class PurchaseModel(models.Model):
 
     def save(self, *args, **kwargs):
         super(PurchaseModel, self).save(*args, **kwargs)
+
+    @classmethod
+    def truncate(cls):
+        """
+            USE WITH CAUTION!!
+        """
+        with connection.cursor() as cursor:
+            cursor.execute('TRUNCATE TABLE {} CASCADE'.format(cls._meta.db_table))
 
 
 class PurchaseStatusModel(models.Model):
@@ -34,6 +41,12 @@ class PurchaseStatusModel(models.Model):
         return str(self.id)
 
     def save(self, *args, **kwargs):
-        if not self.id:
-            self.created_at = datetime.now()
         super(PurchaseStatusModel, self).save(*args, **kwargs)
+
+    @classmethod
+    def truncate(cls):
+        """
+            USE WITH CAUTION!!
+        """
+        with connection.cursor() as cursor:
+            cursor.execute('TRUNCATE TABLE {} CASCADE'.format(cls._meta.db_table))

@@ -1,16 +1,17 @@
-{% load static %}
-{% load tz %}
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <title>
-        {% block title %} {% endblock %}
-    </title>
+{% load static %}
+{% load tz %}
 
+<head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta charset="UTF-8">
     <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
+
+    <title>
+        {% block title %} {% endblock %}
+    </title>
 
     {# Bootstrap CSS #}
     <link rel="stylesheet" href="{% static 'css/core/bootstrap.min.css' %}">
