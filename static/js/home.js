@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    prepare_graph(months_list, quantity_list)
+    prepare_graph(months_list, quantity_list);
 
     $("#submit").on("click", function () {
         $("#submit").addClass("is-loading disabled");
@@ -39,7 +39,7 @@ $(document).ready(function () {
                 }
             });
         }
-    })
+    });
 });
 
 function validate_dates(start, end) {

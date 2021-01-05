@@ -14,7 +14,7 @@ PURCHASE_STATUS_CHOICES = (
     ("delivered", "Delivered")
 )
 QUANTITY_LIST = range(1, 11)
-SIZE = 50
+SIZE = 5000
 TARGET_AVG = 7
 NAME_OCCURRENCE_COUNT_DICT = {}
 
@@ -130,7 +130,7 @@ def populate_purchase_status_models():
 
             purchase_status_model = PurchaseStatusModel()
             purchase_status_model.purchase = purchase_model
-            purchase_status_model.status = choice
+            purchase_status_model.status = choice[0]
             purchase_status_model.save()
             PurchaseStatusModel.objects.filter(id=purchase_status_model.id).update(created_at=date)
 

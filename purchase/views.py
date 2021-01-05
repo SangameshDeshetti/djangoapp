@@ -9,9 +9,11 @@ from django.http import HttpResponse
 
 
 def home_view(request):
+    # Given minimum date in problem statement is January 1st, 2019
     min_date = datetime(2019, 1, 1, 0, 0)
     min_date = min_date.strftime("%Y-%m-%d")
 
+    # Given maximum date in problem statement is March 31st, 2020
     max_date = datetime(2020, 3, 31, 0, 0)
     max_date = max_date.strftime("%Y-%m-%d")
 
@@ -51,7 +53,6 @@ def home_view(request):
         "quantity_list": quantity_list,
         "min_date": min_date,
         "max_date": max_date,
-        "today": today
     })
 
 
