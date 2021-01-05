@@ -80,3 +80,5 @@ def fetch_transactions(request):
             "months_list": months_list
         }
         return HttpResponse(json.dumps(data), content_type='application/json')
+
+    return HttpResponse(status=500)
