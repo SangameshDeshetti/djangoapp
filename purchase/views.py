@@ -1,5 +1,5 @@
 from django.shortcuts import render
-# from .utils.populate_db import populate_db
+from .utils.populate_db import populate_db
 from .models import PurchaseModel, PurchaseStatusModel
 from django.db.models import Sum
 from django.db.models.functions import ExtractMonth, ExtractYear
@@ -17,10 +17,11 @@ def home_view(request):
 
     today = datetime.today().strftime('%Y-%m-%d')
 
-    # PurchaseModel.truncate()
-    # PurchaseStatusModel.truncate()
-    #
-    # populate_db()
+    purchase_models_count = PurchaseModel.objects.all().count()
+    purchase_status_models_count = PurchaseStatusModel.objects.all().count()
+
+    if not purchase_models_count or not purchase_status_models_count:
+        populate_db()
 
     purchase_status_models = PurchaseStatusModel.objects \
         .annotate(month=ExtractMonth('created_at'), year=ExtractYear('created_at'), ) \
