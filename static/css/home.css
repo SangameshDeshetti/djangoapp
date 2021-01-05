@@ -1,0 +1,24 @@
+.main {
+    width: auto;
+    height: 400px;
+    margin-top: 20px;
+}
+
+.start_date, .end_date, .submit {
+    cursor: pointer;
+}
+
+.end_date, .submit {
+    margin-left: 16px;
+}
+
+.no-results {
+    width: auto;
+    height: 300px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

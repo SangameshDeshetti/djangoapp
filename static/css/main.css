@@ -1,0 +1,22 @@
+body {
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.dashboard-text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.account-section {
+    background: #ffffff;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #222222;
+    padding: 6px 10px;
+    font-weight: 500;
+}
+
+.profile-dropdown {
+    margin-left: 5px;
+}

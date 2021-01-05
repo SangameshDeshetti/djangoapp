@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %} Purchases Reports {% endblock %}
+
+{% block head %}
+    {# CSS file #}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+    {# echart JS #}
+    <script src="{% static 'js/core/echarts.min.js' %}"></script>
+
+    {# JS file #}
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="content">
+        <div class="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+
+                    <div class="card">
+
+                        <div class="card-header">
+                            <div class="card-title">Purchases Report</div>
+                        </div>
+
+                        <div class="card-body">
+                            {# Date filter #}
+                            <div class="d-flex justify-content-center align-items-center">
+                                <input class="start_date form-control col-sm-3" id="start_date"
+                                       min="{{ min_date }}" max="{{ max_date }}" value="{{ today }}" type="date"/>
+                                <input class="end_date form-control col-sm-3" id="end_date"
+                                       min="{{ min_date }}" max="{{ max_date }}" value="{{ today }}" type="date"/>
+                                <input class="submit btn btn-primary" id="submit" type="submit">
+                            </div>
+
+                            {# Preparing a DOM with width and height for ECharts #}
+                            <div id="main" class="main"></div>
+                            <div id="no-results" class="d-none no-results">
+                                <div>No data to show</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script>
+        var months_list = JSON.parse(`{{ months_list|safe }}`);
+        var quantity_list = JSON.parse(`{{ quantity_list|safe }}`);
+        var start_date = `{{ min_date|safe }}`;
+        var end_date = `{{ max_date|safe }}`;
+    </script>
+{% endblock %}
