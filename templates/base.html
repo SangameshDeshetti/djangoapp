@@ -1,0 +1,106 @@
+{% load static %}
+{% load tz %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta charset="UTF-8">
+    <meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport'/>
+
+    {# Bootstrap CSS #}
+    <link rel="stylesheet" href="{% static 'css/core/bootstrap.min.css' %}">
+
+    {# favicon #}
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+
+    {# Atlantis Dashbord CSS #}
+    <link rel="stylesheet" href="{% static 'css/core/atlantis.min.css' %}">
+
+    {# jQuery #}
+    <script src="{% static 'js/core/jquery.3.2.1.min.js' %}"></script>
+
+    {# Bootstrap JS #}
+    <script src="{% static 'js/core/bootstrap.min.js' %}"></script>
+
+    {# Popper JS #}
+    <script src="{% static 'js/core/popper.min.js' %}"></script>
+
+    {# Font Awesome CDN #}
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    {# Google API fonts (Open Sans) CDN #}
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700&display=swap"
+          rel="stylesheet">
+
+    {# main CSS #}
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+    {# This can be used to add script links or CSS file links in any page independently #}
+    {% block head %}{% endblock %}
+
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="main-header">
+        {# Dashboard #}
+        <div class="logo-header" data-background-color="light-blue2">
+            <a href="/">
+                <div class="dashboard-text">Dashboard</div>
+            </a>
+        </div>
+        {# End Dashboard #}
+
+        {# Navbar Header #}
+        <nav class="navbar navbar-header navbar-expand-lg" data-background-color="light-blue2">
+        </nav>
+        {# End Navbar #}
+    </div>
+
+    {# Sidebar #}
+    <div class="sidebar sidebar-style-2">
+
+        <div class="sidebar-wrapper scrollbar scrollbar-inner">
+            <div class="sidebar-content">
+                <ul id="navbar_side" class="nav nav-info">
+                    <li class="nav-item active">
+                        <a href="">
+                            <i class="fa fa-home"></i>
+                            <p>Purchases</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {# End Sidebar #}
+
+    <div class="main-panel">
+
+        {# Main content #}
+        {% block content %}{% endblock %}
+        {# End Main Content #}
+
+        {# Footer #}
+        <footer class="footer">
+            <div class="container-fluid">
+                <div class="copyright ml-auto">
+                    © 2021
+                </div>
+            </div>
+        </footer>
+        {# End Footer #}
+    </div>
+
+</div>
+
+</body>
+
+{% block script %}{% endblock %}
+
+</html>
